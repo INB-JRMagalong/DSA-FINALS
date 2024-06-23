@@ -25,15 +25,15 @@ private:
 
     struct Course
     {
-        string course;
-        string code;
-        string title;
+        string courseName;
+        string code[5];
+        string title[5];
         int units;
         int yearLevel;
 
         // Function to display course information
         void display() const;
-    };
+    }course;
 
     struct Schedule
     {
@@ -48,7 +48,25 @@ private:
 
         // Function to display schedule information
         void display() const;
-    };
+    }schedule;
 
 public:
+    void enrollStudent();
+    void viewEnrolees();
+
+
+    void addStudent();
+    void viewStudentList();
+    void editStudent();
+    void deleteStudent();
+
+    void addCourse();
+    void viewCourse();
+    void editCourse();
+    void deleteCourse();
+
+    void addSchedule();
+    void viewSchedule();
+    void editSchedule();
+    void deleteSchedule();
 };
