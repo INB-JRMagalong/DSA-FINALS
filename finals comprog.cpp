@@ -371,11 +371,13 @@ void Enrolment()
                 cout<<"[1] Course Code: BSCS 101 \n Course Title: Introduction to Computing "<<endl;
                 cout<<"[2] Course Code: BSCS 102 \n Course Title: Computer Programming "<<endl;
                 cout<<"[3] Course Code: BSCS 103 \n Course Title: Advanced Computer Programming "<<endl;
-                cout<<"[4] Course Code: BSCS 104 \n Course Title: Understanding the Self "<<endl;
-                cout<<"[5] Course Code: BSCS 105 \n Course Title: Mathematics in the Modern World "<<endl;
-                cout<<"[6] Course Code: BSCS 106 \n Course Title: Linear Algebra "<<endl;
-                cout<<"[7] Course Code: BSCS 107 \n Course Title: Physical Education 1 "<<endl;
-                cout<<"[8] Course Code: BSCS 108 \n Course Title: National Service Training Program 1 "<<endl;
+                cout<<"[4] Course Code: BSCS 104 \n Course Title: Linear Algebra "<<endl;
+                cout<<"[5] Course Code: BSCS 105 \n Course Title: Differential Calculus "<<endl;
+                cout<<"[6] Course Code: BSCS 106 \n Course Title: Mathematics in the Modern World "<<endl;
+                cout<<"[7] Course Code: BSCS 107 \n Course Title: Number Theory "<<endl;
+                cout<<"[8] Course Code: BSCS 108 \n Course Title: Data Structures and Algorithms "<<endl;
+		cout<<"[9] Course Code: BSCS 109 \n Course Title: Integral Calculus "<<endl;
+		cout<<"[10] Course Code: BSCS 110 \n Course Title: Advanced Calculus "<<endl;
                 
 
                 for (i = 0; i<5; i++){
@@ -399,22 +401,28 @@ void Enrolment()
                         break;
                     case 4:
                         courseCode[i] = "BSCS 104";
-                        courseTitle[i] = "Understanding the Self";
+                        courseTitle[i] = "Linear Algebra";
                         break;
                     case 5:
                         courseCode[i] = "BSCS 105";
-                        courseTitle[i] = "Mathematics in the Modern World";
+                        courseTitle[i] = "Differential Calculus";
                         break;
                     case 6:
                         courseCode[i] = "BSCS 106";
-                        courseTitle[i] = "Linear Algebra";
+                        courseTitle[i] = "Mathematics in the Modern World";
                         break; 
                     case 7:
                         courseCode[i] = "BSCS 107";
-                        courseTitle[i] = "Physical Education 1"; 
+                        courseTitle[i] = "Number Theory"; 
                     case 8:
                         courseCode[i] = "BSCS 108";
-                        courseTitle[i] = "Physical Education 1National Service Training Program 1";                     
+                        courseTitle[i] = "Data Structures and Algorithms";
+		    case 9:
+                        courseCode[i] = "BSCS 109";
+                        courseTitle[i] = "Integral Calculus";
+		    case 10:
+                        courseCode[i] = "BSCS 110";
+                        courseTitle[i] = "Advanced Calculus";
                     default:
                         break;
                     }
@@ -422,14 +430,15 @@ void Enrolment()
             break;
             case 2:
                 cout<<"[1] Course Code: BSCS 201 \n Course Title: Object-Oriented Programming "<<endl;
-                cout<<"[2] Course Code: BSCS 202 \n Course Title: Filipino sa Iba't Ibang Disiplina "<<endl;
-                cout<<"[3] Course Code: BSCS 203 \n Course Title: Readings in Philippine History "<<endl;
-                cout<<"[4] Course Code: BSCS 204 \n Course Title: Art Appreciation "<<endl;
-                cout<<"[5] Course Code: BSCS 205 \n Course Title: Differential Calculus "<<endl;
-                cout<<"[6] Course Code: BSCS 206 \n Course Title: Number Theory "<<endl;
-                cout<<"[7] Course Code: BSCS 207 \n Course Title: Rhythmic Activities "<<endl;
-                cout<<"[8] Course Code: BSCS 208 \n Course Title: National Service Training Program 2 "<<endl;
-
+                cout<<"[2] Course Code: BSCS 202 \n Course Title: Computer Organization w/ Assembly Language "<<endl;
+                cout<<"[3] Course Code: BSCS 203 \n Course Title: Database Management Systems  "<<endl;
+                cout<<"[4] Course Code: BSCS 204 \n Course Title: Computer Networking 1 "<<endl;
+                cout<<"[5] Course Code: BSCS 205 \n Course Title: Calculus-Based Physics "<<endl;
+                cout<<"[6] Course Code: BSCS 206 \n Course Title: Discrete Mathematics "<<endl;
+                cout<<"[7] Course Code: BSCS 207 \n Course Title: Design and Analysis of Algorithms "<<endl;
+                cout<<"[8] Course Code: BSCS 208 \n Course Title: Advanced Object-Oriented Programming "<<endl;
+		cout<<"[9] Course Code: BSCS 208 \n Course Title: Science, Technology and Society "<<endl;
+		cout<<"[10] Course Code: BSCS 208 \n Course Title: Information Management "<<endl;
                 for ( i = 0 ; i < 5; i++){
 
                     cout<<"Select Course: ";
@@ -439,49 +448,60 @@ void Enrolment()
                     {
                     case 1:
                         courseCode[i] = "BSCS 201";
-                        courseTitle[i] = "Advanced Computer Programming";
+                        courseTitle[i] = "Object-Oriented Programming";
                         break;
                     case 2:
                         courseCode[i] = "BSCS 202";
-                        courseTitle[i] = "Filipino sa Iba't Ibang Disiplina";
+                        courseTitle[i] = "Computer Organization w/ Assembly Language";
                         break;
                     case 3:
                         courseCode[i] = "BSCS 203";
-                        courseTitle[i] = "Readings in Philippine History";
+                        courseTitle[i] = "Database Management Systems";
                         break;
                     case 4:
                         courseCode[i] = "BSCS 204";
-                        courseTitle[i] = "Art Appreciation";
+                        courseTitle[i] = "Computer Networking 1";
                         break;
                     case 5:
                         courseCode[i] = "BSCS 205";
-                        courseTitle[i] = "Differential Calculus";
+                        courseTitle[i] = "Calculus-Based Physics";
                         break;
                     case 6:
                         courseCode[i] = "BSCS 206";
-                        courseTitle[i] = "Number Theory";
+                        courseTitle[i] = "Discrete Mathematics";
                         break;  
                     case 7:
                         courseCode[i] = "BSCS 207";
-                        courseTitle[i] = "Rhythmic Activities";
+                        courseTitle[i] = "Design and Analysis of Algorithms";
                         break;
                     case 8:
                         courseCode[i] = "BSCS 208";
-                        courseTitle[i] = "National Service Training Program 2";
+                        courseTitle[i] = "Advanced Object-Oriented Programming";
                         break;                  
-                    
+                    case 9:
+                        courseCode[i] = "BSCS 209";
+                        courseTitle[i] = "Science, Technology and Society";
+                        break; 
+		    case 10:
+                        courseCode[i] = "BSCS 210";
+                        courseTitle[i] = "Information Management";
+                        break; 
                     default:
                         break;
                     }
                 }
             break;
             case 3:
-                cout<<"[1] Course Code: BSCS 301 \n Course Title: Object-Oriented Programming "<<endl;
-                cout<<"[2] Course Code: BSCS 302 \n Course Title: Computer Organization w/ Assembly Language "<<endl;
-                cout<<"[3] Course Code: BSCS 303 \n Course Title: Database Management Systems"<<endl;
-                cout<<"[4] Course Code: BSCS 304 \n Course Title: Computer Networking 1"<<endl;
-                cout<<"[5] Course Code: BSCS 305 \n Course Title: Calculus-Based Physics"<<endl;
-                cout<<"[6] Course Code: BSCS 306 \n Course Title: Discrete Mathematics"<<endl;
+                cout<<"[1] Course Code: BSCS 301 \n Course Title: Automata Theory and Formal Languages "<<endl;
+                cout<<"[2] Course Code: BSCS 302 \n Course Title: Mobile Computing "<<endl;
+                cout<<"[3] Course Code: BSCS 303 \n Course Title: Human Computer Interaction"<<endl;
+                cout<<"[4] Course Code: BSCS 304 \n Course Title: Web Systems and Technologies "<<endl;
+                cout<<"[5] Course Code: BSCS 305 \n Course Title: Application Development and Emerging Technologies"<<endl;
+                cout<<"[6] Course Code: BSCS 306 \n Course Title: Data Analysis "<<endl;
+		cout<<"[7] Course Code: BSCS 306 \n Course Title: Programming Languages"<<endl;
+		cout<<"[8] Course Code: BSCS 306 \n Course Title: Software Engineering"<<endl;
+		cout<<"[9] Course Code: BSCS 306 \n Course Title: Computer Architecture"<<endl;
+		cout<<"[10] Course Code: BSCS 306 \n Course Title: Symbolic Logic"<<endl;
 
                 for ( i = 0 ; i < 5; i++){
 
@@ -491,29 +511,45 @@ void Enrolment()
                     switch (courseChoice)
                     {
                     case 1:
-                        courseCode[i] = "BSCS 201";
-                        courseTitle[i] = "Computer Programing 2";
+                        courseCode[i] = "BSCS 301";
+                        courseTitle[i] = "Automata Theory and Formal Languages";
                         break;
                     case 2:
-                        courseCode[i] = "BSIT 202";
-                        courseTitle[i] = "Mathemathics in the Modern World";
+                        courseCode[i] = "BSIT 302";
+                        courseTitle[i] = "Mobile Computing";
                         break;
                     case 3:
-                        courseCode[i] = "BSIT 203";
-                        courseTitle[i] = "Professional Development";
+                        courseCode[i] = "BSIT 303";
+                        courseTitle[i] = "Human Computer Interaction";
                         break;
                     case 4:
-                        courseCode[i] = "BSIT 204";
-                        courseTitle[i] = "Web Development 2";
+                        courseCode[i] = "BSIT 304";
+                        courseTitle[i] = "Web Systems and Technologies";
                         break;
                     case 5:
-                        courseCode[i] = "BSIT 205";
-                        courseTitle[i] = "Introduction To Human Computer Interaction";
+                        courseCode[i] = "BSIT 305";
+                        courseTitle[i] = "Application Development and Emerging Technologies";
                         break;
                     case 6:
-                        courseCode[i] = "BSIT 206";
-                        courseTitle[i] = "Physical Education 2";
-                        break;                    
+                        courseCode[i] = "BSIT 306";
+                        courseTitle[i] = "Data Analysis";
+                        break;
+		    case 7:
+                        courseCode[i] = "BSIT 307";
+                        courseTitle[i] = "Programming Languages";
+                        break; 
+		    case 8:
+                        courseCode[i] = "BSIT 308";
+                        courseTitle[i] = "Software Engineering";
+                        break; 
+	            case 9:
+                        courseCode[i] = "BSIT 309";
+                        courseTitle[i] = "Computer Architecture";
+                        break; 
+	            case 10:
+                        courseCode[i] = "BSIT 310";
+                        courseTitle[i] = "Symbolic Logic";
+                        break; 
                     
                     default:
                         break;
@@ -521,12 +557,16 @@ void Enrolment()
                 }
             break;
             case 4:
-                cout<<"[1] Course Code: BSCS 401 \n Course Title: Object-Oriented Programming "<<endl;
-                cout<<"[2] Course Code: BSCS 402 \n Course Title: Computer Organization w/ Assembly Language "<<endl;
-                cout<<"[3] Course Code: BSCS 403 \n Course Title: Database Management Systems"<<endl;
-                cout<<"[4] Course Code: BSCS 404 \n Course Title: Computer Networking 1"<<endl;
-                cout<<"[5] Course Code: BSCS 405 \n Course Title: Calculus-Based Physics"<<endl;
-                cout<<"[6] Course Code: BSCS 406 \n Course Title: Discrete Mathematics"<<endl;
+                cout<<"[1] Course Code: BSCS 401 \n Course Title: Fundamentals of Data Science "<<endl;
+                cout<<"[2] Course Code: BSCS 402 \n Course Title: Advanced Software Engineering "<<endl;
+                cout<<"[3] Course Code: BSCS 403 \n Course Title: Artificial Intelligence "<<endl;
+                cout<<"[4] Course Code: BSCS 404 \n Course Title: Principles of Operating Systems "<<endl;
+                cout<<"[5] Course Code: BSCS 405 \n Course Title: CS Thesis 1"<<endl;
+                cout<<"[6] Course Code: BSCS 406 \n Course Title: CS Thesis 2"<<endl;
+		cout<<"[7] Course Code: BSCS 407 \n Course Title: Machine Learning"<<endl;
+		cout<<"[8] Course Code: BSCS 408 \n Course Title: Information Assurance and Security"<<endl;
+		cout<<"[9] Course Code: BSCS 409 \n Course Title: Technopreneurship"<<endl;
+		cout<<"[10] Course Code: BSCS 410 \n Course Title: Advanced Data Science"<<endl;
 
                 for ( i = 0 ; i < 5; i++){
 
@@ -536,30 +576,45 @@ void Enrolment()
                     switch (courseChoice)
                     {
                     case 1:
-                        courseCode[i] = "BSCS 201";
-                        courseTitle[i] = "Computer Programing 2";
+                        courseCode[i] = "BSCS 401";
+                        courseTitle[i] = "Fundamentals of Data Science";
                         break;
                     case 2:
-                        courseCode[i] = "BSIT 202";
-                        courseTitle[i] = "Mathemathics in the Modern World";
+                        courseCode[i] = "BSIT 402";
+                        courseTitle[i] = "Advanced Software Engineering";
                         break;
                     case 3:
-                        courseCode[i] = "BSIT 203";
-                        courseTitle[i] = "Professional Development";
+                        courseCode[i] = "BSIT 403";
+                        courseTitle[i] = "Artificial Intelligence";
                         break;
                     case 4:
-                        courseCode[i] = "BSIT 204";
-                        courseTitle[i] = "Web Development 2";
+                        courseCode[i] = "BSIT 404";
+                        courseTitle[i] = "Principles of Operating Systems";
                         break;
                     case 5:
-                        courseCode[i] = "BSIT 205";
-                        courseTitle[i] = "Introduction To Human Computer Interaction";
+                        courseCode[i] = "BSIT 405";
+                        courseTitle[i] = "CS Thesis 1";
                         break;
                     case 6:
-                        courseCode[i] = "BSIT 206";
-                        courseTitle[i] = "Physical Education 2";
+                        courseCode[i] = "BSIT 406";
+                        courseTitle[i] = "CS Thesis 2";
                         break;                    
-                    
+                    case 7:
+                        courseCode[i] = "BSIT 407";
+                        courseTitle[i] = "Machine Learning";
+                        break; 
+		    case 8:
+                        courseCode[i] = "BSIT 408";
+                        courseTitle[i] = "Information Assurance and Security";
+                        break; 
+	            case 9:
+                        courseCode[i] = "BSIT 409";
+                        courseTitle[i] = "Technopreneurship";
+                        break; 
+	            case 10:
+                        courseCode[i] = "BSIT 410";
+                        courseTitle[i] = "Advanced Data Science";
+                        break; 
                     default:
                         break;
                     }
