@@ -20,8 +20,8 @@ private:
         int yearLevel;
 
 
-        void display() const;
-    };
+
+    }student;
 
     struct Course
     {
