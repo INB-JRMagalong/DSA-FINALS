@@ -31,8 +31,7 @@ private:
         int units;
         int yearLevel;
 
-        // Function to display course information
-        void display() const;
+
     }course;
 
     struct Schedule
@@ -46,8 +45,7 @@ private:
         string time;
         string room;
 
-        // Function to display schedule information
-        void display() const;
+
     }schedule;
 
 public:
