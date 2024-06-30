@@ -19,9 +19,7 @@ private:
         string degreeProgram;
         int yearLevel;
 
-
-
-    }student;
+    } student;
 
     struct Course
     {
@@ -31,8 +29,7 @@ private:
         int units;
         int yearLevel;
 
-
-    }course;
+    } course;
 
     struct Schedule
     {
@@ -45,13 +42,11 @@ private:
         string time;
         string room;
 
-
-    }schedule;
+    } schedule;
 
 public:
-    void enrollStudent();
+    void enrollStudent( string firstName, string middlename, string lastname, string gender , string coursename, string coursecode[], string coursetitle[]);
     void viewEnrolees();
-
 
     void addStudent();
     void viewStudentList();
@@ -67,4 +62,18 @@ public:
     void viewSchedule();
     void editSchedule();
     void deleteSchedule();
+};
+
+void School::enrollStudent(string firstName, string middlename, string lastname, string gender , string coursename, string coursecode[], string coursetitle[])
+{
+    student.firstName = firstName;
+    student.middleName = middlename;
+    student.lastName = lastname;
+    student.gender=gender;
+    course.courseName = coursename;
+    for (int i = 0; i < 5; i++)
+    {
+        course.code[i] = coursecode[i];
+        course.title[i] = coursetitle[i];
+    }
 };
