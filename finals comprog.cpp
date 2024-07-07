@@ -1,20 +1,19 @@
 #include <iostream>
 #include <string>
-#include <vector>
 #include <fstream>
 #include "School.h"
 #include <list>
 
 using namespace std;
 
-list<School> schoolList;
-School *school, *current ,*temp;
+list<School> enrolledStudentList, studentList;
+School *student = new School;
 
 void Header();
 
 int mainmenu();
 int EnrollmentMenu();
-int ScheduleManagementMenu();
+int StudentManagementMenu();
 int ScheduleManagementMenu();
 int CourseManagementMenu();
 
@@ -23,20 +22,22 @@ void EnrollStudent();
 void ViewEnrolees();
 
 void StudentManagement();
-    void AddStudent();
-    void ViewStudentList();
-    void EditStudent();
-    void DeleteStudent();
+void AddStudent();
+void ViewStudentList();
+void EditStudent();
+void DeleteStudent();
+
 void ScheduleManagement();
-    void AddSchedule();
-    void ViewSchedule();
-    void EditSchedule();
-    void DeleteSchedule();
+void AddSchedule();
+void ViewSchedule();
+void EditSchedule();
+void DeleteSchedule();
+
 void CourseManagement();
-    void AddCourse();
-    void ViewCourse();
-    void EditCourse();
-    void DeleteCourse();
+void AddCourse();
+void ViewCourse();
+void EditCourse();
+void DeleteCourse();
 
 int main()
 {
@@ -63,13 +64,14 @@ int main()
 
     } while (mainchoice != 5);
 
+    delete student;
     return 0;
 }
 
 void Header()
 {
     cout << "==============================" << endl;
-    cout << "Welcome to the CrticalThikerz University" << endl;
+    cout << "Welcome to the CriticalThinkerz University" << endl;
     cout << "==============================\n\n\n"
          << endl;
 }
@@ -100,11 +102,29 @@ int EnrollmentMenu()
     {
         cout << "Enrollment Menu" << endl;
         cout << "[1] Enroll Student" << endl;
-        cout << "[2] View Enrolees" << endl;
+        cout << "[2] View Enrollees" << endl;
         cout << "[3] Back" << endl;
         cout << "Enter choice: ";
         cin >> choice;
     } while (choice < 1 || choice > 3);
+    return choice;
+}
+
+int StudentManagementMenu()
+{
+    Header();
+    int choice;
+    do
+    {
+        cout << "Student Management Menu" << endl;
+        cout << "[1] Add Student" << endl;
+        cout << "[2] View Student" << endl;
+        cout << "[3] Edit Student" << endl;
+        cout << "[4] Delete Student" << endl;
+        cout << "[5] Back" << endl;
+        cout << "Enter choice: ";
+        cin >> choice;
+    } while (choice < 1 || choice > 5);
     return choice;
 }
 
@@ -146,7 +166,6 @@ int CourseManagementMenu()
 
 void Enrollment()
 {
-
     switch (EnrollmentMenu())
     {
     case 1:
@@ -156,401 +175,70 @@ void Enrollment()
         ViewEnrolees();
         break;
     case 3:
-        main();
         break;
     }
 }
 
 void EnrollStudent()
 {
-    school = new School;
+    int tempIdholder = -1, choice;
+    string tempNameholder;
 
-    string firstName, middleName, lastName, gender;
-    string course, courseCode[5], courseTitle[5];
-    int coursecodetitle = 0, courseChoice = 0, yearLevel = 0, i = 0;
-    Header();
-    cout << "Enter Student First Name: ";
-    cin >> firstName;
-    cout << "Enter Student Middle Name: ";
-    cin >> middleName;
-    cout << "Enter Student Last Name: ";
-    cin >> lastName;
-
-    do
-    {
-        cout << "Choose Gender: " << endl;
-        cout << "[M] Male" << endl;
-        cout << "[F] Female" << endl;
-        cin >> gender;
-    } while (gender != "M" && gender != "F" && gender != "m" && gender != "f");
-
-    do
-    {
-        cout << "Choose Course: " << endl;
-        cout << "[1] BSIT" << endl;
-        cout << "[2] BSCS" << endl;
-        cin >> courseChoice;
-    } while (courseChoice < 1 || courseChoice > 2);
-
-    do
-    {
-        cout << "Enter Student Year Level: ";
-        cin >> yearLevel;
-    } while (yearLevel < 1 || yearLevel > 4);
-    switch (courseChoice)
+    cout << "Search by: \n1. ID \n2. Name \n3. Back \nEnter choice: ";
+    cin >> choice;
+    switch (choice)
     {
     case 1:
-        course = "BSIT";
+        cout << "Enter Student ID: ";
+        cin >> tempIdholder;
+        break;
 
-        switch (yearLevel)
-        {
-        case 1:
-            cout << "[1] Course Code: BSIT 101 \n Course Title: Computer Programing 1 " << endl;
-            cout << "[2] Course Code: BSIT 102 \n Course Title: Introduction to Computing " << endl;
-            cout << "[3] Course Code: BSIT 103 \n Course Title: Personal Development" << endl;
-            cout << "[4] Course Code: BSIT 104 \n Course Title: Web Development 1" << endl;
-            cout << "[5] Course Code: BSIT 105 \n Course Title: Database Management System" << endl;
-            cout << "[6] Course Code: BSIT 106 \n Course Title: Physical Education" << endl;
-
-            for (i = 0; i < 5; i++)
-            {
-
-                cout << "Select Course: ";
-                cin >> courseChoice;
-
-                switch (courseChoice)
-                {
-                case 1:
-                    courseCode[i] = "BSIT 101";
-                    courseTitle[i] = "Computer Programing 1";
-                    break;
-                case 2:
-                    courseCode[i] = "BSIT 102";
-                    courseTitle[i] = "Introduction to Computing";
-                    break;
-                case 3:
-                    courseCode[i] = "BSIT 103";
-                    courseTitle[i] = "Personal Development";
-                    break;
-                case 4:
-                    courseCode[i] = "BSIT 104";
-                    courseTitle[i] = "Web Development 1";
-                    break;
-                case 5:
-                    courseCode[i] = "BSIT 105";
-                    courseTitle[i] = "Database Management System";
-                    break;
-                case 6:
-                    courseCode[i] = "BSIT 106";
-                    courseTitle[i] = "Physical Education";
-                    break;
-
-               
-                }
-            }
-            break;
-        case 2:
-            cout << "[1] Course Code: BSIT 201 \n Course Title: Computer Programing 2 " << endl;
-            cout << "[2] Course Code: BSIT 202 \n Course Title: Mathemathics in the Modern World " << endl;
-            cout << "[3] Course Code: BSIT 203 \n Course Title: Professional Development" << endl;
-            cout << "[4] Course Code: BSIT 204 \n Course Title: Web Development 2" << endl;
-            cout << "[5] Course Code: BSIT 205 \n Course Title: Introduction To Human Computer Interaction" << endl;
-            cout << "[6] Course Code: BSIT 206 \n Course Title: Physical Education 2" << endl;
-
-            for (i = 0; i < 5; i++)
-            {
-
-                cout << "Select Course: ";
-                cin >> courseChoice;
-
-                switch (courseChoice)
-                {
-                case 1:
-                    courseCode[i] = "BSIT 201";
-                    courseTitle[i] = "Computer Programing 2";
-                    break;
-                case 2:
-                    courseCode[i] = "BSIT 202";
-                    courseTitle[i] = "Mathemathics in the Modern World";
-                    break;
-                case 3:
-                    courseCode[i] = "BSIT 203";
-                    courseTitle[i] = "Professional Development";
-                    break;
-                case 4:
-                    courseCode[i] = "BSIT 204";
-                    courseTitle[i] = "Web Development 2";
-                    break;
-                case 5:
-                    courseCode[i] = "BSIT 205";
-                    courseTitle[i] = "Introduction To Human Computer Interaction";
-                    break;
-                case 6:
-                    courseCode[i] = "BSIT 206";
-                    courseTitle[i] = "Physical Education 2";
-                    break;
-
-                default:
-                    break;
-                }
-            }
-            break;
-        case 3:
-            cout << "[1] Course Code: BSIT 301 \n Course Title: Data Structures and Algorithms " << endl;
-            cout << "[2] Course Code: BSIT 302 \n Course Title: Applied Statistics " << endl;
-            cout << "[3] Course Code: BSIT 303 \n Course Title: The Contemporary World" << endl;
-            cout << "[4] Course Code: BSIT 304 \n Course Title: Web Design With Client Side Scripting" << endl;
-            cout << "[5] Course Code: BSIT 305 \n Course Title: User Experience Design Fundamentals" << endl;
-            cout << "[6] Course Code: BSIT 306 \n Course Title: Physical Education 3" << endl;
-
-            for (i = 0; i < 5; i++)
-            {
-
-                cout << "Select Course: ";
-                cin >> courseChoice;
-
-                switch (courseChoice)
-                {
-                case 1:
-                    courseCode[i] = "BSIT 301";
-                    courseTitle[i] = "Data Structures and Algorithms";
-                    break;
-                case 2:
-                    courseCode[i] = "BSIT 302";
-                    courseTitle[i] = "Applied Statistics";
-                    break;
-                case 3:
-                    courseCode[i] = "BSIT 303";
-                    courseTitle[i] = "The Contemporary World";
-                    break;
-                case 4:
-                    courseCode[i] = "BSIT 304";
-                    courseTitle[i] = "Web Design With Client Side Scripting";
-                    break;
-                case 5:
-                    courseCode[i] = "BSIT 305";
-                    courseTitle[i] = "User Experience Design Fundamentals";
-                    break;
-                case 6:
-                    courseCode[i] = "BSIT 306";
-                    courseTitle[i] = "Physical Education 3";
-                    break;
-
-                default:
-                    break;
-                }
-            }
-            break;
-        case 4:
-            cout << "[1] Course Code: BSIT 301 \n Course Title: Data Structures and Algorithms " << endl;
-            cout << "[2] Course Code: BSIT 302 \n Course Title: Applied Statistics " << endl;
-            cout << "[3] Course Code: BSIT 303 \n Course Title: The Contemporary World" << endl;
-            cout << "[4] Course Code: BSIT 304 \n Course Title: Web Design With Client Side Scripting" << endl;
-            cout << "[5] Course Code: BSIT 305 \n Course Title: User Experience Design Fundamentals" << endl;
-            cout << "[6] Course Code: BSIT 306 \n Course Title: Physical Education 3" << endl;
-
-            for (i = 0; i < 5; i++)
-            {
-
-                cout << "Select Course: ";
-                cin >> courseChoice;
-
-                switch (courseChoice)
-                {
-                case 1:
-                    courseCode[i] = "BSIT 301";
-                    courseTitle[i] = "Data Structures and Algorithms";
-                    break;
-                case 2:
-                    courseCode[i] = "BSIT 302";
-                    courseTitle[i] = "Applied Statistics";
-                    break;
-                case 3:
-                    courseCode[i] = "BSIT 303";
-                    courseTitle[i] = "The Contemporary World";
-                    break;
-                case 4:
-                    courseCode[i] = "BSIT 304";
-                    courseTitle[i] = "Web Design With Client Side Scripting";
-                    break;
-                case 5:
-                    courseCode[i] = "BSIT 305";
-                    courseTitle[i] = "User Experience Design Fundamentals";
-                    break;
-                case 6:
-                    courseCode[i] = "BSIT 306";
-                    courseTitle[i] = "Physical Education 3";
-                    break;
-
-                default:
-                    break;
-                }
-            }
-            break;
-        }
-	break;
     case 2:
-        course = "BSCS";
+        cout << "Enter Name (Last Name or First Name): ";
+        cin.ignore();
+        getline(cin, tempNameholder);
+        break;
 
-        switch (yearLevel)
+    case 3:
+        return;
+
+    default:
+        cout << "Invalid choice" << endl;
+        return;
+    }
+
+    bool studentFound = false;
+    for (list<School>::iterator it = studentList.begin(); it != studentList.end(); ++it)
+    {
+        if (tempIdholder == it->idgetter() || tempNameholder == it->lastnamegetter() || tempNameholder == it->firstnamegetter())
         {
-        case 1:
-            cout << "[1] Course Code: BSCS 101 \n Course Title: Introduction to Computing " << endl;
-            cout << "[2] Course Code: BSCS 102 \n Course Title: Computer Programming " << endl;
-            cout << "[3] Course Code: BSCS 103 \n Course Title: Kontekstwalisadong Komunikasyon sa Filipino " << endl;
-            cout << "[4] Course Code: BSCS 104 \n Course Title: Understanding the Self " << endl;
-            cout << "[5] Course Code: BSCS 105 \n Course Title: Mathematics in the Modern World " << endl;
-            cout << "[6] Course Code: BSCS 106 \n Course Title: Linear Algebra " << endl;
-            cout << "[7] Course Code: BSCS 107 \n Course Title: Physical Education 1 " << endl;
-
-            for (i = 0; i < 5; i++)
-            {
-
-                cout << "Select Course: ";
-                cin >> courseChoice;
-
-                switch (courseChoice)
-                {
-                case 1:
-                    courseCode[i] = "BSCS 101";
-                    courseTitle[i] = "Introduction to Computing";
-                    break;
-                case 2:
-                    courseCode[i] = "BSCS 102";
-                    courseTitle[i] = "Computer Programming";
-                    break;
-                case 3:
-                    courseCode[i] = "BSCS 103";
-                    courseTitle[i] = "Kontekstwalisadong Komunikasyon sa Filipino";
-                    break;
-                case 4:
-                    courseCode[i] = "BSCS 104";
-                    courseTitle[i] = "Understanding the Self";
-                    break;
-                case 5:
-                    courseCode[i] = "BSCS 105";
-                    courseTitle[i] = "Mathematics in the Modern World";
-                    break;
-                case 6:
-                    courseCode[i] = "BSCS 106";
-                    courseTitle[i] = "Linear Algebra";
-                    break;
-                case 7:
-                    courseCode[i] = "BSCS 107";
-
-                default:
-                    break;
-                }
-            }
-            break;
-        case 2:
-            cout << "[1] Course Code: BSCS 201 \n Course Title: Computer Programing 2 " << endl;
-            cout << "[2] Course Code: BSCS 202 \n Course Title: Mathemathics in the Modern World " << endl;
-            cout << "[3] Course Code: BSCS 203 \n Course Title: Professional Development" << endl;
-            cout << "[4] Course Code: BSCS 204 \n Course Title: Web Development 2" << endl;
-            cout << "[5] Course Code: BSCS 205 \n Course Title: Introduction To Human Computer Interaction" << endl;
-            cout << "[6] Course Code: BSCS 206 \n Course Title: Physical Education 2" << endl;
-
-            for (i = 0; i < 5; i++)
-            {
-
-                cout << "Select Course: ";
-                cin >> courseChoice;
-
-                switch (courseChoice)
-                {
-                case 1:
-                    courseCode[i] = "BSCS 201";
-                    courseTitle[i] = "Computer Programing 2";
-                    break;
-                case 2:
-                    courseCode[i] = "BSCS 202";
-                    courseTitle[i] = "Mathemathics in the Modern World";
-                    break;
-                case 3:
-                    courseCode[i] = "BSCS 203";
-                    courseTitle[i] = "Professional Development";
-                    break;
-                case 4:
-                    courseCode[i] = "BSCS 204";
-                    courseTitle[i] = "Web Development 2";
-                    break;
-                case 5:
-                    courseCode[i] = "BSCS 205";
-                    courseTitle[i] = "Introduction To Human Computer Interaction";
-                    break;
-                case 6:
-                    courseCode[i] = "BSCS 206";
-                    courseTitle[i] = "Physical Education 2";
-                    break;
-
-                default:
-                    break;
-                }
-            }
-            break;
-        case 3:
-            cout << "[1] Course Code: BSCS 301 \n Course Title: Computer Programing 2 " << endl;
-            cout << "[2] Course Code: BSCS 302 \n Course Title: Mathemathics in the Modern World " << endl;
-            cout << "[3] Course Code: BSCS 303 \n Course Title: Professional Development" << endl;
-            cout << "[4] Course Code: BSCS 304 \n Course Title: Web Development 2" << endl;
-            cout << "[5] Course Code: BSCS 305 \n Course Title: Introduction To Human Computer Interaction" << endl;
-            cout << "[6] Course Code: BSCS 306 \n Course Title: Physical Education 2" << endl;
-
-            for (i = 0; i < 5; i++)
-            {
-
-                cout << "Select Course: ";
-                cin >> courseChoice;
-
-                switch (courseChoice)
-                {
-                case 1:
-                    courseCode[i] = "BSCS 201";
-                    courseTitle[i] = "Computer Programing 2";
-                    break;
-                case 2:
-                    courseCode[i] = "BSIT 202";
-                    courseTitle[i] = "Mathemathics in the Modern World";
-                    break;
-                case 3:
-                    courseCode[i] = "BSIT 203";
-                    courseTitle[i] = "Professional Development";
-                    break;
-                case 4:
-                    courseCode[i] = "BSIT 204";
-                    courseTitle[i] = "Web Development 2";
-                    break;
-                case 5:
-                    courseCode[i] = "BSIT 205";
-                    courseTitle[i] = "Introduction To Human Computer Interaction";
-                    break;
-                case 6:
-                    courseCode[i] = "BSIT 206";
-                    courseTitle[i] = "Physical Education 2";
-                    break;
-
-                default:
-                    break;
-                }
-            }
+            it->addCourse();
+            enrolledStudentList.push_back(*it);
+            studentFound = true;
             break;
         }
     }
-    school->enrollStudent(firstName, middleName, lastName, gender, course, courseCode, courseTitle);
-    schoolList.push_back(*school);
 
+    if (!studentFound)
+    {
+        cout << "Student not found" << endl;
+    }
 }
 
 void ViewEnrolees()
 {
     Header();
+    cout << "Enrolled Students" << endl;
+    cout << "==============================" << endl;
+    for (auto &s : enrolledStudentList)
+    {
+        s.viewEnrolees();
+    }
 }
 
 void StudentManagement()
 {
-    Header();
-    switch (ScheduleManagementMenu())
+    switch (StudentManagementMenu())
     {
     case 1:
         AddStudent();
@@ -565,7 +253,6 @@ void StudentManagement()
         DeleteStudent();
         break;
     case 5:
-        main();
         break;
     }
 }
@@ -573,10 +260,16 @@ void StudentManagement()
 void AddStudent()
 {
     Header();
+    student->addStudent();
+    studentList.push_back(*student);
 }
 void ViewStudentList()
 {
     Header();
+    for (auto &s : studentList)
+    {
+        cout << "ID: " << s.idgetter() << ", Name: " << s.lastnamegetter() << ", " << s.firstnamegetter() << endl;
+    }
 }
 void EditStudent()
 {
@@ -589,7 +282,6 @@ void DeleteStudent()
 
 void ScheduleManagement()
 {
-    Header();
     switch (ScheduleManagementMenu())
     {
     case 1:
@@ -605,7 +297,6 @@ void ScheduleManagement()
         DeleteSchedule();
         break;
     case 5:
-        main();
         break;
     }
 }
@@ -628,7 +319,6 @@ void DeleteSchedule()
 
 void CourseManagement()
 {
-    Header();
     switch (CourseManagementMenu())
     {
     case 1:
@@ -644,7 +334,6 @@ void CourseManagement()
         DeleteCourse();
         break;
     case 5:
-        main();
         break;
     }
 }
